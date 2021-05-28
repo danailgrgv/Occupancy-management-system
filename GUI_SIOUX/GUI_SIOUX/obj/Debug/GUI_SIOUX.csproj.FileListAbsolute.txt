@@ -1,0 +1,17 @@
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\GUI_SIOUX.exe.config
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\GUI_SIOUX.exe
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\GUI_SIOUX.pdb
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.csprojAssemblyReference.cache
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.Properties.Resources.resources
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.csproj.GenerateResource.cache
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.csproj.CoreCompileInputs.cache
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.exe
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.pdb
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.ucStatistics.resources
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.Form1.resources
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\CircularProgressBar.dll
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\WinFormAnimation.dll
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\CircularProgressBar.xml
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\WinFormAnimation.xml
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.csproj.CopyComplete
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.ucSettings.resources
