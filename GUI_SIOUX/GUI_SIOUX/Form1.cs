@@ -20,6 +20,7 @@ namespace GUI_SIOUX
             InitLoad();
 
             this.ucStettings1.ucStatistics1 = this.ucStatistics1;
+            this.ucStatistics1.ucSettings1 = this.ucStettings1;
 
             Task.Run(() =>
             {

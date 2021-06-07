@@ -61,6 +61,18 @@
     <Compile Include="Gate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHolder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHolder.Designer.cs">
+      <DependentUpon>ucHolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +98,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHolder.resx">
+      <DependentUpon>ucHolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucStatistics.resx">
       <DependentUpon>ucStatistics.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +132,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sioux Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\access.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\access%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\access%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\access%282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,3 +15,5 @@ C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\CircularProgressBar.xm
 C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\bin\Debug\WinFormAnimation.xml
 C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.csproj.CopyComplete
 C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.ucSettings.resources
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.test.resources
+C:\Users\witia\source\repos\GUI_SIOUX\GUI_SIOUX\obj\Debug\GUI_SIOUX.ucHolder.resources

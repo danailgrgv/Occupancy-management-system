@@ -82,9 +82,8 @@ namespace GUI_SIOUX
             this.cpbOccupancy.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.cpbOccupancy.SuperscriptText = "";
             this.cpbOccupancy.TabIndex = 0;
-            this.cpbOccupancy.Text = "33%";
+            this.cpbOccupancy.Text = "%";
             this.cpbOccupancy.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
-            this.cpbOccupancy.Value = 33;
             // 
             // panel1
             // 
@@ -272,9 +271,8 @@ namespace GUI_SIOUX
             this.cpbToilet.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.cpbToilet.SuperscriptText = "";
             this.cpbToilet.TabIndex = 0;
-            this.cpbToilet.Text = "33%";
+            this.cpbToilet.Text = "%";
             this.cpbToilet.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
-            this.cpbToilet.Value = 33;
             // 
             // serialPort1
             // 

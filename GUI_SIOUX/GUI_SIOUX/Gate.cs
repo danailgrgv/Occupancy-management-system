@@ -6,16 +6,26 @@ using System.Threading.Tasks;
 
 namespace GUI_SIOUX
 {
-    class Gate
+    public class Gate
     {
         public int GateNumber { get; set; }
         public int GateCounter { get; set; }
+        public bool IsToilet { get; }
+        public bool queue { get; set; }
 
 
-        public Gate(int gateNumb)
+        //public Gate(int gateNumb)
+        //{
+        //    this.GateNumber = gateNumb;
+        //    this.GateCounter = 0;
+        //    //this.IsToilet = toilet;
+        //}
+
+        public Gate(int toiletNum, bool toilet)
         {
-            this.GateNumber = gateNumb;
+            this.IsToilet = toilet;
             this.GateCounter = 0;
+            this.GateNumber = toiletNum;
         }
     }
 }
