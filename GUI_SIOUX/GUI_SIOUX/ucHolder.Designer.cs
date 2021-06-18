@@ -30,7 +30,7 @@ namespace GUI_SIOUX
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbQueue = new System.Windows.Forms.Label();
             this.lbGateNr = new System.Windows.Forms.Label();
             this.lbPass = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,7 +41,7 @@ namespace GUI_SIOUX
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lbQueue);
             this.panel1.Controls.Add(this.lbGateNr);
             this.panel1.Controls.Add(this.lbPass);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -51,17 +51,16 @@ namespace GUI_SIOUX
             this.panel1.Size = new System.Drawing.Size(220, 160);
             this.panel1.TabIndex = 2;
             // 
-            // label2
+            // lbQueue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(12, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "There is a queue";
-            this.label2.Visible = false;
+            this.lbQueue.AutoSize = true;
+            this.lbQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbQueue.ForeColor = System.Drawing.Color.Yellow;
+            this.lbQueue.Location = new System.Drawing.Point(12, 117);
+            this.lbQueue.Name = "lbQueue";
+            this.lbQueue.Size = new System.Drawing.Size(195, 29);
+            this.lbQueue.TabIndex = 1;
+            this.lbQueue.Text = "There is a queue";
             // 
             // lbGateNr
             // 
@@ -112,7 +111,7 @@ namespace GUI_SIOUX
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbQueue;
         private System.Windows.Forms.Label lbGateNr;
         private System.Windows.Forms.Label lbPass;
         private System.Windows.Forms.PictureBox pictureBox1;

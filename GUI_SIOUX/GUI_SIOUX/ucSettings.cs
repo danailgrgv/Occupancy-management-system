@@ -37,7 +37,14 @@ namespace GUI_SIOUX
 
 
 
-        public void update(int gateNum)
+        //public void update(int gateNum)
+        //{
+        //    ucHolder gate = hold.Find(x => x.Gate.GateNumber == gateNum);
+        //    gate.Refresher();
+
+        //}
+
+        public void update(UInt32 gateNum)
         {
             ucHolder gate = hold.Find(x => x.Gate.GateNumber == gateNum);
             gate.Refresher();

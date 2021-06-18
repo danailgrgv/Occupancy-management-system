@@ -84,6 +84,7 @@ namespace GUI_SIOUX
             this.cpbOccupancy.TabIndex = 0;
             this.cpbOccupancy.Text = "%";
             this.cpbOccupancy.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
+            this.cpbOccupancy.Value = 68;
             // 
             // panel1
             // 
@@ -133,7 +134,7 @@ namespace GUI_SIOUX
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 300;
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel2
@@ -273,6 +274,7 @@ namespace GUI_SIOUX
             this.cpbToilet.TabIndex = 0;
             this.cpbToilet.Text = "%";
             this.cpbToilet.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
+            this.cpbToilet.Value = 68;
             // 
             // serialPort1
             // 

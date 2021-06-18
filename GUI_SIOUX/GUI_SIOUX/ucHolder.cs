@@ -47,6 +47,11 @@ namespace GUI_SIOUX
         {
             //if(pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;)
 
+            if (Gate.queue == true)
+                lbQueue.Show();
+            else if(Gate.queue == false)
+                lbQueue.Hide();
+                
 
             lbPass.Text = "Passed: " + Gate.GateCounter.ToString();
 
@@ -57,6 +62,7 @@ namespace GUI_SIOUX
                     pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_1_;
                     Thread.Sleep(5000);
                     pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;
+                    
                 });
             }
         }

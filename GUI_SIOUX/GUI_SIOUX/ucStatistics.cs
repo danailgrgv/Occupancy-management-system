@@ -195,17 +195,21 @@ namespace GUI_SIOUX
                 if (arr[0].StartsWith("G"))
                 {
                     arr[0] = arr[0].Remove(0, 1);
-                    int gateNmr = int.Parse(arr[0]);
+                    UInt32 gateNmr = UInt32.Parse(arr[0]);
                     var GateId = gateLst.Find(x => x.GateNumber == gateNmr && x.IsToilet == false);
                     if (GateId != null)
                     {
                         if (GateId.GateNumber == gateNmr)
                         {
-                            if(arr[1].Contains("Queue"))
+                            if(arr[1].Contains("Q"))
                             {
                                 GateId.queue = true;
                             }
-                            else if (arr[1].Contains("ALARM"))
+                            else if(arr[1].Contains("N"))
+                            {
+                                GateId.queue = false;
+                            }
+                            else if (arr[1].Contains("HELP"))
                             {
                                 btnAssistance(gateNmr, GateId.IsToilet);
                             }
@@ -261,7 +265,7 @@ namespace GUI_SIOUX
                 else if (arr[0].StartsWith("T"))
                 {
                     arr[0] = arr[0].Remove(0, 1);
-                    int toiletNum = int.Parse(arr[0]);
+                    UInt32 toiletNum = UInt32.Parse(arr[0]);
                     var ToiletId = toiletLst.Find(x => x.GateNumber == toiletNum && x.IsToilet == true);
                     if (ToiletId != null)
                     {
@@ -325,7 +329,7 @@ namespace GUI_SIOUX
         }
 
 
-        private void btnAssistance(int number, bool toilet)
+        private void btnAssistance(UInt32 number, bool toilet)
         {
             if(toilet)
             {
@@ -365,7 +369,7 @@ namespace GUI_SIOUX
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            //serialPort1.WriteLine("ON");
         }
 
 
