@@ -63,10 +63,7 @@ namespace GUI_SIOUX
                     catch { }
                 }
             }
-            catch
-            {
-
-            }
+            catch { }
         }
 
 
@@ -107,6 +104,8 @@ namespace GUI_SIOUX
                                 if (int.TryParse(arr[1],out parsedValue) == true)
                                 {
                                     int count = parsedValue - (GateId.Entered - GateId.Exited);
+
+
                                     if(count > 0)
                                     {
                                         GateId.Entered += count;
@@ -114,8 +113,11 @@ namespace GUI_SIOUX
                                     }
                                     else if(count < 0)
                                     {
-                                        GateId.Exited -= count;
-                                        Gate.Occupancy += count;
+                                        if(Gate.Occupancy > 0)
+                                        {
+                                            GateId.Exited -= count;
+                                            Gate.Occupancy += count;
+                                        }
                                     }
                                     
                                     if(GateId.Entered > BuildingMax)
@@ -213,6 +215,12 @@ namespace GUI_SIOUX
                     int ppm = int.Parse(arr[1]);
                     ppmChange(ppm);
                 }
+
+                else if (arr[0].StartsWith("MAX"))
+                {
+                    timer1.Enabled = true;
+                    BuildingMax = int.Parse(arr[1]);
+                }
             }
             catch { }
         }
@@ -274,23 +282,23 @@ namespace GUI_SIOUX
 
         private void ppmChange(int co2)
         {
-            if (co2 > 29)
-            {
-                co2 = 23;
-            }
+            //if (co2 > 29)
+            //{
+            //    co2 = 23;
+            //}
 
-            if (co2 >= 26 && co2 < 28)
-            {
-                lblCO2.ForeColor = Color.Orange;
-            }
-            else if (co2 >= 28)
-            {
-                lblCO2.ForeColor = Color.Red;
-            }
-            else
-            {
-                lblCO2.ForeColor = SystemColors.Control;
-            }
+            //if (co2 >= 26 && co2 < 28)
+            //{
+            //    lblCO2.ForeColor = Color.Orange;
+            //}
+            //else if (co2 >= 28)
+            //{
+            //    lblCO2.ForeColor = Color.Red;
+            //}
+            //else
+            //{
+            //    lblCO2.ForeColor = SystemColors.Control;
+            //}
 
             lblCO2.Text = "CO2: " + co2.ToString() + "ppm";
         }

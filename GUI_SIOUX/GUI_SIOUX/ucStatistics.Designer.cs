@@ -86,6 +86,7 @@ namespace GUI_SIOUX
             this.cpbOccupancy.TabIndex = 0;
             this.cpbOccupancy.Text = "0%";
             this.cpbOccupancy.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
+            this.cpbOccupancy.Value = 68;
             // 
             // panel1
             // 
@@ -309,10 +310,10 @@ namespace GUI_SIOUX
             this.cpbToilet.TabIndex = 0;
             this.cpbToilet.Text = "0%";
             this.cpbToilet.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
+            this.cpbToilet.Value = 68;
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 115200;
             this.serialPort1.PortName = "COM5";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
