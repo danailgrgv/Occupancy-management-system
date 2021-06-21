@@ -29,18 +29,24 @@ namespace GUI_SIOUX
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucHolder));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbExit = new System.Windows.Forms.Label();
             this.lbQueue = new System.Windows.Forms.Label();
             this.lbGateNr = new System.Windows.Forms.Label();
             this.lbPass = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbDelete = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
+            this.panel1.Controls.Add(this.pbDelete);
+            this.panel1.Controls.Add(this.lbExit);
             this.panel1.Controls.Add(this.lbQueue);
             this.panel1.Controls.Add(this.lbGateNr);
             this.panel1.Controls.Add(this.lbPass);
@@ -51,14 +57,25 @@ namespace GUI_SIOUX
             this.panel1.Size = new System.Drawing.Size(220, 160);
             this.panel1.TabIndex = 2;
             // 
+            // lbExit
+            // 
+            this.lbExit.AutoSize = true;
+            this.lbExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbExit.Location = new System.Drawing.Point(71, 89);
+            this.lbExit.Name = "lbExit";
+            this.lbExit.Size = new System.Drawing.Size(60, 20);
+            this.lbExit.TabIndex = 2;
+            this.lbExit.Text = "Exited:";
+            // 
             // lbQueue
             // 
             this.lbQueue.AutoSize = true;
-            this.lbQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbQueue.ForeColor = System.Drawing.Color.Yellow;
-            this.lbQueue.Location = new System.Drawing.Point(12, 117);
+            this.lbQueue.Location = new System.Drawing.Point(3, 123);
             this.lbQueue.Name = "lbQueue";
-            this.lbQueue.Size = new System.Drawing.Size(195, 29);
+            this.lbQueue.Size = new System.Drawing.Size(159, 25);
             this.lbQueue.TabIndex = 1;
             this.lbQueue.Text = "There is a queue";
             // 
@@ -78,11 +95,11 @@ namespace GUI_SIOUX
             this.lbPass.AutoSize = true;
             this.lbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbPass.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbPass.Location = new System.Drawing.Point(71, 69);
+            this.lbPass.Location = new System.Drawing.Point(71, 59);
             this.lbPass.Name = "lbPass";
-            this.lbPass.Size = new System.Drawing.Size(70, 20);
+            this.lbPass.Size = new System.Drawing.Size(72, 20);
             this.lbPass.TabIndex = 1;
-            this.lbPass.Text = "Passed:";
+            this.lbPass.Text = "Entered:";
             // 
             // pictureBox1
             // 
@@ -94,6 +111,18 @@ namespace GUI_SIOUX
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pbDelete
+            // 
+            this.pbDelete.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
+            this.pbDelete.Location = new System.Drawing.Point(179, 123);
+            this.pbDelete.Name = "pbDelete";
+            this.pbDelete.Size = new System.Drawing.Size(38, 34);
+            this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDelete.TabIndex = 3;
+            this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
+            // 
             // ucHolder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -104,6 +133,7 @@ namespace GUI_SIOUX
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,5 +145,7 @@ namespace GUI_SIOUX
         private System.Windows.Forms.Label lbGateNr;
         private System.Windows.Forms.Label lbPass;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbExit;
+        private System.Windows.Forms.PictureBox pbDelete;
     }
 }

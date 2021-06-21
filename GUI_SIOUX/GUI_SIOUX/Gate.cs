@@ -8,10 +8,10 @@ namespace GUI_SIOUX
 {
     public class Gate
     {
-        //public int GateNumber { get; set; }
-
+        public static int Occupancy { get; set; }
         public UInt32 GateNumber { get; set; }
-        public int GateCounter { get; set; }
+        public int Entered { get; set; }
+        public int Exited { get; set; }
         public bool IsToilet { get; }
         public bool queue { get; set; }
 
@@ -32,7 +32,8 @@ namespace GUI_SIOUX
         public Gate(UInt32 toiletNum, bool toilet)
         {
             this.IsToilet = toilet;
-            this.GateCounter = 0;
+            this.Entered = 0;
+            this.Exited = 0;
             this.GateNumber = toiletNum;
         }
     }

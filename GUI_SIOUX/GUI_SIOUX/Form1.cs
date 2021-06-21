@@ -14,6 +14,7 @@ namespace GUI_SIOUX
 {
     public partial class Form1 : Form
     {
+        public static ucSettings Settings { get; private set; }
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +22,8 @@ namespace GUI_SIOUX
 
             this.ucStettings1.ucStatistics1 = this.ucStatistics1;
             this.ucStatistics1.ucSettings1 = this.ucStettings1;
-
+            Form1.Settings = this.ucStettings1;
+            
             Task.Run(() =>
             {
                 while (true)

@@ -16,13 +16,18 @@ namespace GUI_SIOUX
         public ucStatistics()
         {
             InitializeComponent();
-
+            Common_cpb(cpbOccupancy, (int)bldPrc);
+            Common_cpb(cpbToilet, (int)bldPrc);
         }
 
-        int pplIn = 0, pplRem = 150, toiletIn = 0, toiletLeft = 50, toiletMax = 50, BuildingMax = 150;//, co2 = 23;
-        
+
+        int toiletIn = 0, toiletLeft = 50, toiletMax = 50, bldPrc = 0;
+
+        public int BuildingMax = 1000;//, co2 = 23;
         string message;
-        List<Gate> gateLst = new List<Gate>();
+
+
+        public List<Gate> gateLst = new List<Gate>();
         List<Gate> toiletLst = new List<Gate>();
 
         private void ucStatistics_Leave(object sender, EventArgs e)
@@ -52,14 +57,10 @@ namespace GUI_SIOUX
                 {
                     try
                     {
-                        string[] arr = message.Split(splitChars);
-                        changer(arr);
-                        //ucSettings1.update();
+                        string[] mesArr = message.Split(splitChars);
+                        changer(mesArr);
                     }
-                    catch
-                    {
-
-                    }
+                    catch { }
                 }
             }
             catch
@@ -71,124 +72,8 @@ namespace GUI_SIOUX
 
         private void changer(string[] arr)
         {
-            //try 
-            //{
-            //    if (arr[0].StartsWith("G"))
-            //    {
-            //        arr[0] = arr[0].Remove(0, 1);
-            //        int gateNmr = int.Parse(arr[0]);
-            //        var GateId = gateLst.Find(x => x.GateNumber == gateNmr && x.IsToilet == false);
-            //        if(GateId != null)
-            //        {
-            //            if (GateId.GateNumber == gateNmr)
-            //            {
-            //                if (arr[1].Contains("+1"))
-            //                {
-            //                    if(pplIn < BuildingMax)
-            //                    {
-            //                        GateId.GateCounter++;
-            //                        pplIn++;
-            //                        pplRem--;
-            //                    }
-            //                }
-            //                else if (arr[1].Contains("-1"))
-            //                {
-            //                    if (GateId.GateCounter > 0)
-            //                    {
-            //                        GateId.GateCounter--;
-            //                        pplIn--;
-            //                        pplRem++;
-            //                    }
-            //                }
-            //                else if (arr[1].Contains("ALARM"))
-            //                {
-            //                    btnAssistance(gateNmr, GateId.IsToilet);
-            //                }
-
-            //                if (pplRem <= 0)
-            //                {
-            //                    pplIn = 0;
-            //                    pplRem = 150;
-            //                }
-            //                int bldPrc = 0;
-            //                if (pplIn > 0)
-            //                {
-            //                    bldPrc = (pplIn * 100 / BuildingMax);
-            //                    Common_cpb(cpbOccupancy, (int)bldPrc);
-            //                }
-
-            //                Common_cpb(cpbOccupancy, (int)bldPrc);
-
-            //                lblLeftPlaces.Text = "Remaining: " + pplRem.ToString();
-            //                lblInsideBuilding.Text = "Inside: " + pplIn.ToString();
-            //            }
-            //        }
-            //        else
-            //            gateLst.Add(new Gate(gateNmr,false));
-            //    }
-
-            //    else if (arr[0].StartsWith("T"))
-            //    {
-            //        arr[0] = arr[0].Remove(0, 1);
-            //        int toiletNum = int.Parse(arr[0]);
-            //        var ToiletId = toiletLst.Find(x => x.GateNumber == toiletNum && x.IsToilet == true);
-            //        if(ToiletId != null)
-            //        {
-            //            if(ToiletId.GateNumber == toiletNum)
-            //            {
-            //                if (arr[1].Contains("+1"))
-            //                {
-            //                    if(toiletIn < toiletMax)
-            //                    {
-            //                        ToiletId.GateCounter++;
-            //                        toiletIn++;
-            //                        toiletLeft--;
-            //                    }
-            //                }
-            //                else if (arr[1].Contains("-1"))
-            //                {
-            //                    if (ToiletId.GateCounter > 0)
-            //                    {
-            //                        ToiletId.GateCounter--;
-            //                        toiletIn--;
-            //                        toiletLeft++;
-            //                    }
-            //                }
-            //                //else if (arr[1].Contains("ALARM"))
-            //                //{
-            //                //    btnAssistance(toiletNum, ToiletId.IsToilet);
-            //                //}
-            //            }
-            //        }
-            //        else
-            //            toiletLst.Add(new Gate(toiletNum, true));
-
-            //        if (toiletLeft <= 0)
-            //        {
-            //            toiletIn = 0;
-            //            toiletLeft = toiletMax;
-            //        }
-            //        int toilPrc = 0;
-            //        if (toiletIn > 0)
-            //        {
-            //            toilPrc = (toiletIn * 100 / toiletMax);
-            //            //Common_cpb(cpbToilet, (int)toilPrc);
-            //        }
-            //        Common_cpb(cpbToilet, (int)toilPrc);
-
-            //        lblToiletLeft.Text = "Remaining: " + toiletLeft.ToString();
-            //        lblToiletIn.Text = "Inside: " + toiletIn.ToString();
-            //    }
-
-            //    else if (arr[0].StartsWith("C"))
-            //    {
-            //        int ppm = int.Parse(arr[1]);
-            //        ppmChange(ppm);
-            //    }
-            //}
-            //catch { }
-
-
+            string[] msgAgain = new string[arr.Length];
+            arr.CopyTo(msgAgain, 0);
 
             try
             {
@@ -217,31 +102,42 @@ namespace GUI_SIOUX
                             {
                                 int parsedValue = default(int);
 
+                                int PrevPeople = GateId.Entered;
+                                
                                 if (int.TryParse(arr[1],out parsedValue) == true)
                                 {
-                                    GateId.GateCounter = parsedValue;
-                                    pplIn = 0;
-
-                                    foreach (var item in gateLst)
+                                    int count = parsedValue - (GateId.Entered - GateId.Exited);
+                                    if(count > 0)
                                     {
-                                        pplIn += item.GateCounter;
+                                        GateId.Entered += count;
+                                        Gate.Occupancy += count;
+                                    }
+                                    else if(count < 0)
+                                    {
+                                        GateId.Exited -= count;
+                                        Gate.Occupancy += count;
+                                    }
+                                    
+                                    if(GateId.Entered > BuildingMax)
+                                    {
+                                        GateId.Entered = BuildingMax;
                                     }
 
-                                    if(pplIn >= BuildingMax)
+                                    if(Gate.Occupancy >= BuildingMax)
                                     {
-                                        pplIn = BuildingMax;
+                                        Gate.Occupancy = BuildingMax;
                                     }
 
-                                    if (pplIn <= BuildingMax)
+                                    if(Gate.Occupancy <= 0)
                                     {
-                                        pplRem = BuildingMax - pplIn;
+                                        Gate.Occupancy = 0;
                                     }
 
-                                    int bldPrc = 0;
+                                    bldPrc = 0;
 
-                                    if (pplIn > 0)
+                                    if (Gate.Occupancy > 0)
                                     {
-                                        bldPrc = (pplIn * 100 / BuildingMax);
+                                        bldPrc = (Gate.Occupancy * 100 / BuildingMax);
                                         Common_cpb(cpbOccupancy, (int)bldPrc);
                                     }
                                 }
@@ -249,8 +145,8 @@ namespace GUI_SIOUX
 
                             ucSettings1.update(GateId.GateNumber);
 
-                            lblLeftPlaces.Text = "Remaining: " + pplRem.ToString();
-                            lblInsideBuilding.Text = "Inside: " + pplIn.ToString();
+                            lblLeftPlaces.Text = "Remaining: " + (BuildingMax - Gate.Occupancy).ToString();
+                            lblInsideBuilding.Text = "Inside: " + Gate.Occupancy.ToString();
                         }
                     }
                     else
@@ -258,8 +154,8 @@ namespace GUI_SIOUX
                         Gate gate = new Gate(gateNmr,false);
                         gateLst.Add(gate);
                         ucSettings1.add(gate);
+                        changer(msgAgain);
                     }
-
                 }
 
                 else if (arr[0].StartsWith("T"))
@@ -275,12 +171,12 @@ namespace GUI_SIOUX
 
                             if(int.TryParse(arr[1],out parsedValue) == true)
                             {
-                                ToiletId.GateCounter = parsedValue;
+                                ToiletId.Entered = parsedValue;
                                 toiletIn = 0;
 
                                 foreach (var item in toiletLst)
                                 {
-                                    toiletIn += item.GateCounter;
+                                    toiletIn += item.Entered;
                                 }
 
                                 if (toiletIn >= toiletMax)
@@ -306,7 +202,10 @@ namespace GUI_SIOUX
                         lblToiletIn.Text = "Inside: " + toiletIn.ToString();
                     }
                     else
+                    {
                         toiletLst.Add(new Gate(toiletNum, true));
+                        changer(msgAgain);
+                    }
                 }
 
                 else if (arr[0].StartsWith("C"))
@@ -318,7 +217,6 @@ namespace GUI_SIOUX
             catch { }
         }
 
-
         private void btnAssist_Click(object sender, EventArgs e)
         {
             if (btnAssist.BackColor == Color.Red)
@@ -327,7 +225,6 @@ namespace GUI_SIOUX
                 btnAssist.Text = "";
             }
         }
-
 
         private void btnAssistance(UInt32 number, bool toilet)
         {
@@ -343,6 +240,37 @@ namespace GUI_SIOUX
             }
         }
 
+        private void btnMaxOccupancy_Click(object sender, EventArgs e)
+        {
+            if(!tbxMaxOccupancy.Text.Contains("Currently:"))
+            {
+                try
+                {
+                    BuildingMax = Convert.ToInt32(tbxMaxOccupancy.Text);
+                    lblLeftPlaces.Text = "Remaining: " + BuildingMax.ToString();
+                    bldPrc = (Gate.Occupancy * 100 / BuildingMax);
+                    Common_cpb(cpbOccupancy, (int)bldPrc);
+                }
+                catch { MessageBox.Show("Wrong value!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            }
+        }
+
+        private void tbxMaxOccupancy_Leave_1(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
+
+        private void tbxMaxOccupancy_Enter(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            tbxMaxOccupancy.Text = "";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tbxMaxOccupancy.Text = "Currently: " + BuildingMax.ToString();
+            timer1.Enabled = false;
+        }
 
         private void ppmChange(int co2)
         {
@@ -366,12 +294,6 @@ namespace GUI_SIOUX
 
             lblCO2.Text = "CO2: " + co2.ToString() + "ppm";
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //serialPort1.WriteLine("ON");
-        }
-
 
         private void Common_cpb(CircularProgressBar.CircularProgressBar sender, int value)
         {

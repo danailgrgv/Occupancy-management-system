@@ -32,19 +32,19 @@ namespace GUI_SIOUX
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelSide = new System.Windows.Forms.Panel();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.lbTime = new System.Windows.Forms.Label();
-            this.timerNowTime = new System.Windows.Forms.Timer(this.components);
-            this.pbLogoTime = new System.Windows.Forms.PictureBox();
             this.btnSetings = new System.Windows.Forms.Button();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.pbLogoTime = new System.Windows.Forms.PictureBox();
+            this.timerNowTime = new System.Windows.Forms.Timer(this.components);
             this.ucStettings1 = new GUI_SIOUX.ucSettings();
             this.ucStatistics1 = new GUI_SIOUX.ucStatistics();
             this.panelSide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSide
@@ -59,49 +59,6 @@ namespace GUI_SIOUX
             this.panelSide.Size = new System.Drawing.Size(239, 503);
             this.panelSide.TabIndex = 0;
             // 
-            // panelMain
-            // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.panelMain.Controls.Add(this.ucStettings1);
-            this.panelMain.Controls.Add(this.ucStatistics1);
-            this.panelMain.Controls.Add(this.lbTime);
-            this.panelMain.Controls.Add(this.pbLogoTime);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(239, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(693, 503);
-            this.panelMain.TabIndex = 1;
-            // 
-            // lbTime
-            // 
-            this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbTime.Location = new System.Drawing.Point(6, 302);
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(684, 57);
-            this.lbTime.TabIndex = 3;
-            this.lbTime.Text = "Time";
-            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timerNowTime
-            // 
-            this.timerNowTime.Enabled = true;
-            this.timerNowTime.Interval = 1000;
-            this.timerNowTime.Tick += new System.EventHandler(this.timerNowTime_Tick);
-            // 
-            // pbLogoTime
-            // 
-            this.pbLogoTime.Image = ((System.Drawing.Image)(resources.GetObject("pbLogoTime.Image")));
-            this.pbLogoTime.Location = new System.Drawing.Point(258, 204);
-            this.pbLogoTime.Name = "pbLogoTime";
-            this.pbLogoTime.Size = new System.Drawing.Size(185, 90);
-            this.pbLogoTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLogoTime.TabIndex = 2;
-            this.pbLogoTime.TabStop = false;
-            // 
             // btnSetings
             // 
             this.btnSetings.FlatAppearance.BorderSize = 0;
@@ -115,10 +72,10 @@ namespace GUI_SIOUX
             this.btnSetings.Location = new System.Drawing.Point(0, 257);
             this.btnSetings.Margin = new System.Windows.Forms.Padding(0);
             this.btnSetings.Name = "btnSetings";
-            this.btnSetings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSetings.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnSetings.Size = new System.Drawing.Size(239, 58);
             this.btnSetings.TabIndex = 3;
-            this.btnSetings.Text = "         Settings";
+            this.btnSetings.Text = "       Gate Info";
             this.btnSetings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetings.UseVisualStyleBackColor = true;
             this.btnSetings.Click += new System.EventHandler(this.btnSetings_Click);
@@ -157,6 +114,49 @@ namespace GUI_SIOUX
             this.pbLogo.MouseEnter += new System.EventHandler(this.pbLogo_MouseEnter);
             this.pbLogo.MouseLeave += new System.EventHandler(this.pbLogo_MouseLeave);
             // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.panelMain.Controls.Add(this.ucStettings1);
+            this.panelMain.Controls.Add(this.ucStatistics1);
+            this.panelMain.Controls.Add(this.lbTime);
+            this.panelMain.Controls.Add(this.pbLogoTime);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(239, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(693, 503);
+            this.panelMain.TabIndex = 1;
+            // 
+            // lbTime
+            // 
+            this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbTime.Location = new System.Drawing.Point(6, 302);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(684, 57);
+            this.lbTime.TabIndex = 3;
+            this.lbTime.Text = "Time";
+            this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbLogoTime
+            // 
+            this.pbLogoTime.Image = ((System.Drawing.Image)(resources.GetObject("pbLogoTime.Image")));
+            this.pbLogoTime.Location = new System.Drawing.Point(258, 204);
+            this.pbLogoTime.Name = "pbLogoTime";
+            this.pbLogoTime.Size = new System.Drawing.Size(185, 90);
+            this.pbLogoTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogoTime.TabIndex = 2;
+            this.pbLogoTime.TabStop = false;
+            // 
+            // timerNowTime
+            // 
+            this.timerNowTime.Enabled = true;
+            this.timerNowTime.Interval = 1000;
+            this.timerNowTime.Tick += new System.EventHandler(this.timerNowTime_Tick);
+            // 
             // ucStettings1
             // 
             this.ucStettings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
@@ -185,9 +185,9 @@ namespace GUI_SIOUX
             this.Name = "Form1";
             this.Text = "Sioux";
             this.panelSide.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panelMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

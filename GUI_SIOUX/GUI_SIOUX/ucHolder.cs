@@ -15,6 +15,9 @@ namespace GUI_SIOUX
 {
     public partial class ucHolder : UserControl
     {
+        int currentAmount;
+        int prevExited;
+
         public Gate Gate
         {
             get
@@ -26,16 +29,15 @@ namespace GUI_SIOUX
                 gate = value;
                 this.setup();
             }
-
         }
-
         private Gate gate;
         public ucHolder()
         {
             InitializeComponent();
-            //int vertScrollWidth = SystemInformation.VerticalScrollBarWidth;
-            //tableLayoutPanel1.Padding = new Padding(0, 0, vertScrollWidth, 0);
+            currentAmount = default(int);
+            prevExited = default(int);
             this.Dock = DockStyle.Fill;
+            lbQueue.Hide();
         }
 
         private void setup()
@@ -45,26 +47,42 @@ namespace GUI_SIOUX
 
         public void Refresher()
         {
-            //if(pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;)
-
             if (Gate.queue == true)
                 lbQueue.Show();
             else if(Gate.queue == false)
                 lbQueue.Hide();
-                
 
-            lbPass.Text = "Passed: " + Gate.GateCounter.ToString();
+            lbPass.Text = "Entered: " + Gate.Entered.ToString();
+            lbExit.Text = "Exited: " + Gate.Exited.ToString();
 
-            if (pictureBox1.Image != GUI_SIOUX.Properties.Resources.access_1_)
+            if(Gate.Entered > 0)
             {
-                Task.Run(() =>
+                if (pictureBox1.Image != GUI_SIOUX.Properties.Resources.access_1_)
                 {
-                    pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_1_;
-                    Thread.Sleep(5000);
-                    pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;
-                    
-                });
+                    Task.Run(() =>
+                    {
+                        if (prevExited < Gate.Exited) 
+                        {
+                            pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_2_;
+                            Thread.Sleep(5000);
+                            pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;
+                        }
+                        else if(currentAmount < Gate.Entered)
+                        {
+                            pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_1_;
+                            Thread.Sleep(5000);
+                            pictureBox1.Image = GUI_SIOUX.Properties.Resources.access_3_;
+                        }
+                        currentAmount = Gate.Entered;
+                        prevExited = Gate.Exited;
+                    });
+                }
             }
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            Form1.Settings.delete(gate);
         }
     }
 }

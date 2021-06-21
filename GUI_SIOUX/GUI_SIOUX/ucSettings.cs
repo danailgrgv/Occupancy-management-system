@@ -35,14 +35,15 @@ namespace GUI_SIOUX
             tlpGates.ResumeLayout();
         }
 
-
-
-        //public void update(int gateNum)
-        //{
-        //    ucHolder gate = hold.Find(x => x.Gate.GateNumber == gateNum);
-        //    gate.Refresher();
-
-        //}
+        public void delete(Gate gate)
+        {
+            tlpGates.SuspendLayout();
+            var uc = hold.Find(x => x.Gate.GateNumber == gate.GateNumber);
+            tlpGates.Controls.Remove(uc);
+            hold.Remove(uc);
+            ucStatistics1.gateLst.Remove(gate);
+            tlpGates.ResumeLayout();
+        }
 
         public void update(UInt32 gateNum)
         {

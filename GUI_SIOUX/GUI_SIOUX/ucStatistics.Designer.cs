@@ -38,6 +38,8 @@ namespace GUI_SIOUX
             this.lblInsideBuilding = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbxMaxOccupancy = new System.Windows.Forms.TextBox();
+            this.btnMaxOccupancy = new System.Windows.Forms.Button();
             this.btnAssist = new System.Windows.Forms.Button();
             this.lblCO2 = new System.Windows.Forms.Label();
             this.lblAssistance = new System.Windows.Forms.Label();
@@ -82,9 +84,8 @@ namespace GUI_SIOUX
             this.cpbOccupancy.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.cpbOccupancy.SuperscriptText = "";
             this.cpbOccupancy.TabIndex = 0;
-            this.cpbOccupancy.Text = "%";
+            this.cpbOccupancy.Text = "0%";
             this.cpbOccupancy.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
-            this.cpbOccupancy.Value = 68;
             // 
             // panel1
             // 
@@ -105,9 +106,9 @@ namespace GUI_SIOUX
             this.lblLeftPlaces.ForeColor = System.Drawing.SystemColors.Control;
             this.lblLeftPlaces.Location = new System.Drawing.Point(170, 212);
             this.lblLeftPlaces.Name = "lblLeftPlaces";
-            this.lblLeftPlaces.Size = new System.Drawing.Size(156, 24);
+            this.lblLeftPlaces.Size = new System.Drawing.Size(151, 24);
             this.lblLeftPlaces.TabIndex = 3;
-            this.lblLeftPlaces.Text = "Remaining:  1000";
+            this.lblLeftPlaces.Text = "Remaining: 1000";
             // 
             // lblOccupancy
             // 
@@ -134,12 +135,14 @@ namespace GUI_SIOUX
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 2500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(43)))), ((int)(((byte)(62)))));
+            this.panel2.Controls.Add(this.tbxMaxOccupancy);
+            this.panel2.Controls.Add(this.btnMaxOccupancy);
             this.panel2.Controls.Add(this.btnAssist);
             this.panel2.Controls.Add(this.lblCO2);
             this.panel2.Controls.Add(this.lblAssistance);
@@ -149,6 +152,38 @@ namespace GUI_SIOUX
             this.panel2.Size = new System.Drawing.Size(680, 215);
             this.panel2.TabIndex = 1;
             // 
+            // tbxMaxOccupancy
+            // 
+            this.tbxMaxOccupancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.tbxMaxOccupancy.ForeColor = System.Drawing.SystemColors.Control;
+            this.tbxMaxOccupancy.Location = new System.Drawing.Point(22, 128);
+            this.tbxMaxOccupancy.Name = "tbxMaxOccupancy";
+            this.tbxMaxOccupancy.Size = new System.Drawing.Size(184, 22);
+            this.tbxMaxOccupancy.TabIndex = 4;
+            this.tbxMaxOccupancy.Text = "Currently: 1000";
+            this.tbxMaxOccupancy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxMaxOccupancy.Enter += new System.EventHandler(this.tbxMaxOccupancy_Enter);
+            this.tbxMaxOccupancy.Leave += new System.EventHandler(this.tbxMaxOccupancy_Leave_1);
+            // 
+            // btnMaxOccupancy
+            // 
+            this.btnMaxOccupancy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(55)))), ((int)(((byte)(75)))));
+            this.btnMaxOccupancy.FlatAppearance.BorderSize = 0;
+            this.btnMaxOccupancy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.btnMaxOccupancy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(115)))), ((int)(((byte)(233)))));
+            this.btnMaxOccupancy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaxOccupancy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMaxOccupancy.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnMaxOccupancy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaxOccupancy.Location = new System.Drawing.Point(22, 55);
+            this.btnMaxOccupancy.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMaxOccupancy.Name = "btnMaxOccupancy";
+            this.btnMaxOccupancy.Size = new System.Drawing.Size(184, 67);
+            this.btnMaxOccupancy.TabIndex = 3;
+            this.btnMaxOccupancy.Text = "Change Max Occupancy";
+            this.btnMaxOccupancy.UseVisualStyleBackColor = false;
+            this.btnMaxOccupancy.Click += new System.EventHandler(this.btnMaxOccupancy_Click);
+            // 
             // btnAssist
             // 
             this.btnAssist.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -156,7 +191,7 @@ namespace GUI_SIOUX
             this.btnAssist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssist.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAssist.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAssist.Location = new System.Drawing.Point(545, 95);
+            this.btnAssist.Location = new System.Drawing.Point(527, 63);
             this.btnAssist.Name = "btnAssist";
             this.btnAssist.Size = new System.Drawing.Size(123, 117);
             this.btnAssist.TabIndex = 2;
@@ -168,7 +203,7 @@ namespace GUI_SIOUX
             this.lblCO2.AutoSize = true;
             this.lblCO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblCO2.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCO2.Location = new System.Drawing.Point(3, 95);
+            this.lblCO2.Location = new System.Drawing.Point(286, 93);
             this.lblCO2.Name = "lblCO2";
             this.lblCO2.Size = new System.Drawing.Size(148, 29);
             this.lblCO2.TabIndex = 1;
@@ -180,7 +215,7 @@ namespace GUI_SIOUX
             this.lblAssistance.AutoSize = true;
             this.lblAssistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAssistance.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblAssistance.Location = new System.Drawing.Point(541, 68);
+            this.lblAssistance.Location = new System.Drawing.Point(523, 36);
             this.lblAssistance.Name = "lblAssistance";
             this.lblAssistance.Size = new System.Drawing.Size(158, 24);
             this.lblAssistance.TabIndex = 1;
@@ -217,9 +252,9 @@ namespace GUI_SIOUX
             this.lblToiletLeft.ForeColor = System.Drawing.SystemColors.Control;
             this.lblToiletLeft.Location = new System.Drawing.Point(173, 206);
             this.lblToiletLeft.Name = "lblToiletLeft";
-            this.lblToiletLeft.Size = new System.Drawing.Size(136, 24);
+            this.lblToiletLeft.Size = new System.Drawing.Size(131, 24);
             this.lblToiletLeft.TabIndex = 3;
-            this.lblToiletLeft.Text = "Remaining:  50";
+            this.lblToiletLeft.Text = "Remaining: 50";
             // 
             // lblToilet
             // 
@@ -272,14 +307,13 @@ namespace GUI_SIOUX
             this.cpbToilet.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
             this.cpbToilet.SuperscriptText = "";
             this.cpbToilet.TabIndex = 0;
-            this.cpbToilet.Text = "%";
+            this.cpbToilet.Text = "0%";
             this.cpbToilet.TextMargin = new System.Windows.Forms.Padding(5, 8, 0, 0);
-            this.cpbToilet.Value = 68;
             // 
             // serialPort1
             // 
             this.serialPort1.BaudRate = 115200;
-            this.serialPort1.PortName = "COM3";
+            this.serialPort1.PortName = "COM5";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // ucStatistics
@@ -321,5 +355,7 @@ namespace GUI_SIOUX
         private System.Windows.Forms.Label lblAssistance;
         private System.Windows.Forms.Label lblCO2;
         public System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button btnMaxOccupancy;
+        private System.Windows.Forms.TextBox tbxMaxOccupancy;
     }
 }
