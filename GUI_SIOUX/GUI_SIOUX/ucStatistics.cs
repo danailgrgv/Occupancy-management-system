@@ -282,23 +282,18 @@ namespace GUI_SIOUX
 
         private void ppmChange(int co2)
         {
-            //if (co2 > 29)
-            //{
-            //    co2 = 23;
-            //}
-
-            //if (co2 >= 26 && co2 < 28)
-            //{
-            //    lblCO2.ForeColor = Color.Orange;
-            //}
-            //else if (co2 >= 28)
-            //{
-            //    lblCO2.ForeColor = Color.Red;
-            //}
-            //else
-            //{
-            //    lblCO2.ForeColor = SystemColors.Control;
-            //}
+            if (co2 >= 650 && co2 < 800)
+            {
+                lblCO2.ForeColor = Color.Orange;
+            }
+            else if (co2 >= 800)
+            {
+                lblCO2.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblCO2.ForeColor = SystemColors.Control;
+            }
 
             lblCO2.Text = "CO2: " + co2.ToString() + "ppm";
         }
